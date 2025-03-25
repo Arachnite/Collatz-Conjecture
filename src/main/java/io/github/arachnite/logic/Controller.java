@@ -22,6 +22,12 @@ public class Controller {
                     System.out.print("1 or 2 only: ");
                 }
             }
+
+            System.out.print("\nDo you want to test again? (Y/N): ");
+            input = sc.nextLine().toLowerCase();
+            if(input.equals("y") || input.equals("yes")) {
+                startAlgorithm();
+            }
         }
     }
 
@@ -32,7 +38,7 @@ public class Controller {
             String input = sc.nextLine();
             try {
                 long x = Long.parseLong(input);
-                System.out.println("Test case: " + x);
+                System.out.println("\nTest case: " + x);
                 long i = x;
                 while (i != 1) {
                     if (i % 2 == 0) {
@@ -52,7 +58,44 @@ public class Controller {
 
     public static void rangeTest(Scanner sc) {
 
+        long beginning;
+        long ending;
 
-
+        System.out.print("Enter the number you want to start with: ");
+        while(true) {
+            String input = sc.nextLine();
+            try {
+                beginning = Long.parseLong(input);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.print("Please enter a valid number: ");
+            }
+        }
+        
+        System.out.print("Enter the number you want to end with: ");
+        while(true) {
+            String input = sc.nextLine();
+            try {
+                ending = Long.parseLong(input);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.print("Please enter a valid number: ");
+            }
+        }
+        
+        System.out.println("\nTesting numbers from " + beginning + " to " + ending);
+        for(long x = beginning; x <= ending; x++) {
+            System.out.println("\nTest case: " + x);
+            long i = x;
+            while (i != 1) {
+                if (i % 2 == 0) {
+                    i /= 2;
+                } else {
+                    i = i * 3 + 1;
+                }
+                System.out.println(i);
+            }
+        }
+        System.out.println("Numbers from " + beginning + " to " + ending + " fulfill the Collatz Conjecture.");
     }
 }
