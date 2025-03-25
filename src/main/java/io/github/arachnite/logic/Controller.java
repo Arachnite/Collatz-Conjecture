@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Controller {
 
+    public static final String invalidMessage = "Invalid input. Please enter a valid number. ";
+
     public static void startAlgorithm() {
 
         try(Scanner sc = new Scanner(System.in)) {
@@ -51,7 +53,7 @@ public class Controller {
                 System.out.println(x + " fulfills the Collatz Conjecture.");
                 break;
             } catch (NumberFormatException e) {
-                System.out.print("Please enter a valid number: ");
+                System.out.print(invalidMessage);
             }
         }
     }
@@ -68,7 +70,7 @@ public class Controller {
                 beginning = Long.parseLong(input);
                 break;
             } catch (NumberFormatException e) {
-                System.out.print("Please enter a valid number: ");
+                System.out.print(invalidMessage);
             }
         }
         
@@ -79,7 +81,7 @@ public class Controller {
                 ending = Long.parseLong(input);
                 break;
             } catch (NumberFormatException e) {
-                System.out.print("Please enter a valid number: ");
+                System.out.print(invalidMessage);
             }
         }
         
